@@ -1,0 +1,410 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Файл C:/Users/Asus/source/repos/SolveSquare3/Source.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css">
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Создано системой Doxygen 1.5.8 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="index.html"><span>Титульная&nbsp;страница</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&nbsp;членов&nbsp;всех&nbsp;файлов</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Файл C:/Users/Asus/source/repos/SolveSquare3/Source.cpp</h1><code>#include &lt;stdio.h&gt;</code><br>
+<code>#include &lt;math.h&gt;</code><br>
+<code>#include &lt;assert.h&gt;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Функции</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#e59c1e994cd847bc0dac8827f65ed372">Input</a> (double coeff[], int <a class="el" href="_source_8cpp.html#2c6a422f799e2d05c6c0df52afc04796">Max</a>)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Input function.  <a href="#e59c1e994cd847bc0dac8827f65ed372"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#aae2222de7574dfdbdb563600a7f3a6c">Solver_Line</a> (double a, double b, double *x1)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Program which solve line equation.  <a href="#aae2222de7574dfdbdb563600a7f3a6c"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#25ca83c355b47f8d80d29d0697b56126">Solver_Square</a> (double a, double b, double c, double *x1, double *x2)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Programm which solve square equation.  <a href="#25ca83c355b47f8d80d29d0697b56126"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#2b5d80a39e7c88bf7f2168e64f0c7a91">Unit_Test</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Program which test my programm.  <a href="#2b5d80a39e7c88bf7f2168e64f0c7a91"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#42cf94d718aa79494aa6612da7b1d154">Compare</a> (double x1, double x2)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Program which compare two values.  <a href="#42cf94d718aa79494aa6612da7b1d154"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#e66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Main function.  <a href="#e66f6b31b5ad750f1fe042a706a4e3d4"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Переменные</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#2c6a422f799e2d05c6c0df52afc04796">Max</a> = 3</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#5b649d99012b2a14fb1f0ecfcbfcbda4">OneRoot</a> = 1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#5d5b6af66a08efe1357d0ff3c6eb6a3c">TwoRoot</a> = 2</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#afe64b07ca87090910114ea4c721ae04">InfinitRoot</a> = -1</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#65efca0199a8a3b5f313bc7b4a157501">ZeroRoot</a> = 0</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#1cd2602d9f5217061eb7eb5fa9941d51">UTest</a> = 30</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_source_8cpp.html#11d6e25edfadb76117e30c95c0fe7f3a">mistake</a> = 1e-12</td></tr>
+
+</table>
+<hr><h2>Функции</h2>
+<a class="anchor" name="42cf94d718aa79494aa6612da7b1d154"></a><!-- doxytag: member="Source.cpp::Compare" ref="42cf94d718aa79494aa6612da7b1d154" args="(double x1, double x2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Compare           </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>x2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Program which compare two values. 
+<p>
+<dl compact><dt><b>Аргументы:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>x1</em>&nbsp;</td><td>is first value </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>x2</em>&nbsp;</td><td>if second value </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Возвращает:</b></dt><dd>1 If x1-x2 &gt; mistake <p>
+0 If x1-x2 &lt; mistake </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="e59c1e994cd847bc0dac8827f65ed372"></a><!-- doxytag: member="Source.cpp::Input" ref="e59c1e994cd847bc0dac8827f65ed372" args="(double coeff[], int Max)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Input           </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>coeff</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>Max</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Input function. 
+<p>
+This is an input function. You enter values; if the format is incorrect, it gives an error. When the value is accepted, it reports this and writes the number of successfully entered variables <dl compact><dt><b>Аргументы:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>coeff[]</em>&nbsp;</td><td>Empty array </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>Max</em>&nbsp;</td><td>Array size for coefficients </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>coeff[]</em>&nbsp;</td><td>Array of coefficients. Contains desired coefficients </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Возвращает:</b></dt><dd>1 If you havenot attempts </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="e66f6b31b5ad750f1fe042a706a4e3d4"></a><!-- doxytag: member="Source.cpp::main" ref="e66f6b31b5ad750f1fe042a706a4e3d4" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Main function. 
+<p>
+<dl class="version" compact><dt><b>Версия:</b></dt><dd>1.2.1 </dd></dl>
+<dl class="return" compact><dt><b>Возвращает:</b></dt><dd>0 Programm is succesful working </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="aae2222de7574dfdbdb563600a7f3a6c"></a><!-- doxytag: member="Source.cpp::Solver_Line" ref="aae2222de7574dfdbdb563600a7f3a6c" args="(double a, double b, double *x1)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Solver_Line           </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&nbsp;</td>
+          <td class="paramname"> <em>x1</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Program which solve line equation. 
+<p>
+<dl compact><dt><b>Аргументы:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>a</em>&nbsp;</td><td>is first coefficients in ax + b = 0 </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>b</em>&nbsp;</td><td>is second coefficients in ax + b = 0 </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>*x1</em>&nbsp;</td><td>adress first root </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Возвращает:</b></dt><dd>0 if we have not roots <p>
+1 if we have one root <p>
+-1 if we have infinity number of root </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="25ca83c355b47f8d80d29d0697b56126"></a><!-- doxytag: member="Source.cpp::Solver_Square" ref="25ca83c355b47f8d80d29d0697b56126" args="(double a, double b, double c, double *x1, double *x2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Solver_Square           </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&nbsp;</td>
+          <td class="paramname"> <em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&nbsp;</td>
+          <td class="paramname"> <em>x2</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Programm which solve square equation. 
+<p>
+You accept 3 value: there are coefficients our equation. If a = 0, b = 0,c = 0 we have infinity number of roots. If a = 0, b = 0 u have not roots. If a = 0 we have line equation and we use LineSolver(b,c). If c = 0, x1 = 0 and we need LineSolver(a,b). If a != 0 , b != 0 , c != 0 we should calculate discriminant and compare with 0: we will have 0 roots if discriminant &lt; 0, we will have 1 roots if discr. = 0, we will have 2 roots if discr. &gt; 0 <dl compact><dt><b>Аргументы:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>a</em>&nbsp;</td><td>Is coefficients ax^2 + bx + c = 0 </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>b</em>&nbsp;</td><td>is coefficients ax^2 + bx + c = 0 </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>c</em>&nbsp;</td><td>is coefficients ax^2 + bx + c = 0 </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>x1</em>&nbsp;</td><td>adress first root </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>x2</em>&nbsp;</td><td>adress second root </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>x1</em>&nbsp;</td><td>First root </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>x2</em>&nbsp;</td><td>Second root </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Возвращает:</b></dt><dd>0 if we havenot roots <p>
+1 if we have one root <p>
+2 if we have two roots <p>
+-1 if we have infinity number of root </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="2b5d80a39e7c88bf7f2168e64f0c7a91"></a><!-- doxytag: member="Source.cpp::Unit_Test" ref="2b5d80a39e7c88bf7f2168e64f0c7a91" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Unit_Test           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Program which test my programm. 
+<p>
+<dl class="return" compact><dt><b>Возвращает:</b></dt><dd>1 if test are successful <p>
+-1 if u fail test and print number fail test </dd></dl>
+
+</div>
+</div><p>
+<hr><h2>Переменные</h2>
+<a class="anchor" name="afe64b07ca87090910114ea4c721ae04"></a><!-- doxytag: member="Source.cpp::InfinitRoot" ref="afe64b07ca87090910114ea4c721ae04" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="_source_8cpp.html#afe64b07ca87090910114ea4c721ae04">InfinitRoot</a> = -1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="2c6a422f799e2d05c6c0df52afc04796"></a><!-- doxytag: member="Source.cpp::Max" ref="2c6a422f799e2d05c6c0df52afc04796" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="_source_8cpp.html#2c6a422f799e2d05c6c0df52afc04796">Max</a> = 3          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="11d6e25edfadb76117e30c95c0fe7f3a"></a><!-- doxytag: member="Source.cpp::mistake" ref="11d6e25edfadb76117e30c95c0fe7f3a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double <a class="el" href="_source_8cpp.html#11d6e25edfadb76117e30c95c0fe7f3a">mistake</a> = 1e-12          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="5b649d99012b2a14fb1f0ecfcbfcbda4"></a><!-- doxytag: member="Source.cpp::OneRoot" ref="5b649d99012b2a14fb1f0ecfcbfcbda4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="_source_8cpp.html#5b649d99012b2a14fb1f0ecfcbfcbda4">OneRoot</a> = 1          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="5d5b6af66a08efe1357d0ff3c6eb6a3c"></a><!-- doxytag: member="Source.cpp::TwoRoot" ref="5d5b6af66a08efe1357d0ff3c6eb6a3c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="_source_8cpp.html#5d5b6af66a08efe1357d0ff3c6eb6a3c">TwoRoot</a> = 2          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="1cd2602d9f5217061eb7eb5fa9941d51"></a><!-- doxytag: member="Source.cpp::UTest" ref="1cd2602d9f5217061eb7eb5fa9941d51" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="_source_8cpp.html#1cd2602d9f5217061eb7eb5fa9941d51">UTest</a> = 30          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="65efca0199a8a3b5f313bc7b4a157501"></a><!-- doxytag: member="Source.cpp::ZeroRoot" ref="65efca0199a8a3b5f313bc7b4a157501" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="_source_8cpp.html#65efca0199a8a3b5f313bc7b4a157501">ZeroRoot</a> = 0          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Документация . Последние изменения: Wed Oct 9 01:27:56 2019. Создано системой&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
+</body>
+</html>
