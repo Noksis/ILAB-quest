@@ -10,6 +10,8 @@ struct STRING {
 	int len;
 };
 int Comporator(const void* x1, const void* x2) {
+	assert(x1);
+	assert(x2);
 	STRING* Line1 = (STRING*) x1;
 	STRING* Line2 = (STRING*) x2;
 	for (int i = 0; i < Line1->len; i++) {
@@ -21,22 +23,24 @@ int Comporator(const void* x1, const void* x2) {
 	return 0;
 }
 int Comporator_Reverse(const void* x1, const void* x2) {
+	assert(x1);
+	assert(x2);
 	STRING* Line1 = (STRING*)x1;
 	STRING* Line2 = (STRING*)x2;
-	int CountAlpha1 = 0;
-	int CountAlpha2 = 0;
+	int CountLineAlpha1 = 0;
+	int CountLineAlpha2 = 0;
 	for (int i = 0; i < Line1->len && i < Line2->len ; i++) {
-		while (isalpha(char(*(Line1->index - i + Line1->len - 1-CountAlpha1))) == 0)
-			CountAlpha1++;
-		while (isalpha(char(*(Line2->index - i + Line2->len - 1-CountAlpha2))) == 0)
-			CountAlpha2++;
-		if (char(*(Line1->index - i - CountAlpha1 + Line1->len - 1 )) < char(*(Line2->index + i - CountAlpha2 + Line2->len - 1)))
+		while (isalpha(char(*(Line1->index - i + Line1->len - 1-CountLineAlpha1))) == 0)
+			CountLineAlpha1++;
+		while (isalpha(char(*(Line2->index - i + Line2->len - 1-CountLineAlpha2))) == 0)
+			CountLineAlpha2++;
+		if (char(*(Line1->index - i - CountLineAlpha1 + Line1->len - 1 )) < char(*(Line2->index + i - CountLineAlpha2 + Line2->len - 1)))
 			return -1;
-		if (*(Line1->index + i - CountAlpha1 + Line1->len - 1) > * (Line2->index + i - CountAlpha2  + Line2->len) - 1)
+		if (*(Line1->index + i - CountLineAlpha1 + Line1->len - 1) > * (Line2->index + i - CountLineAlpha2  + Line2->len) - 1)
 			return 1;
 	}
 	return 0;
-  
+}
 char* OPENandWRITE(int *len) {
 	assert(*len != NULL);
 	int trylen = 0;
@@ -57,6 +61,7 @@ char* OPENandWRITE(int *len) {
 	return text;
 }
  void CLOSEandWRITE(int len, struct STRING arrow_index[],const char* Type) {
+	assert(Type);
 	FILE* fp = fopen("SortedOnegin.txt", Type);
 	assert(fp != NULL);
 	if (fp == NULL)
@@ -81,7 +86,7 @@ char* OPENandWRITE(int *len) {
 */
 
 int main() {
-		 int Textlen = 1, Indexlen = 0, count = 0, StringLen = 0;
+		 int Textlen = 1, Indexlen = 0, CountLine = 0, StringLen = 0;
 		 const char* mode_write = "w";
 		 const char* mode_append = "a";
 		 struct STRING Line = {};
@@ -106,19 +111,19 @@ int main() {
 				 while ((isalpha(*(text + i)) == 0) && (i < (Textlen - 1)))
 					 i++;
 				 Line.len = StringLen;
-				 index[count] = Line;
+				 index[CountLine] = Line;
 				 Line.index = text + i;
-				 count++;
+				 CountLine++;
 				 StringLen = 0;
 			 }
 			 StringLen++;
 		 }
 		 assert(index != NULL);
-		 CLOSEandWRITE(count, index,mode_write);
-		 qsort(index, count,sizeof(STRING),Comporator);
-		 CLOSEandWRITE(count, index,mode_append);
-		 qsort(index, count, sizeof(STRING), Comporator_Reverse);
-		 CLOSEandWRITE(count, index,mode_append);
+		 CLOSEandWRITE(CountLine, index,mode_write);
+		 qsort(index, CountLine,sizeof(STRING),Comporator);
+		 CLOSEandWRITE(CountLine, index,mode_append);
+		 qsort(index, CountLine, sizeof(STRING), Comporator_Reverse);
+		 CLOSEandWRITE(CountLine, index,mode_append);
 		 free(text);
 		 free(index);
 		 return 0;
