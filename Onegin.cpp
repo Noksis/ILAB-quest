@@ -5,8 +5,12 @@
 #include <assert.h>
 #include <locale.h>
 #pragma warning (disable: 4996)
+
+const  char* mode_write = "w";
+const  char* mode_append = "a";
+
 struct STRING {
-	char* index;
+	unsigned char* index;
 	int len;
 };
 int Comporator(const void* x1, const void* x2) {
@@ -14,8 +18,8 @@ int Comporator(const void* x1, const void* x2) {
 	assert(x2);
 	STRING* Line1 = (STRING*) x1;
 	STRING* Line2 = (STRING*) x2;
-	for (int i = 0; i < Line1->len; i++) {
-		if (char(*(Line1->index + i)) < char (*(Line2->index + i)))
+	for (int i = 0; i < Line1->len && i < Line2->len; i++) {
+		if (unsigned char(*(Line1->index + i)) < unsigned char (*(Line2->index + i)))
 			return -1;
 		if (*(Line1->index + i) > *(Line2->index + i))
 			return 1;
@@ -30,21 +34,21 @@ int Comporator_Reverse(const void* x1, const void* x2) {
 	int CountLineAlpha1 = 0;
 	int CountLineAlpha2 = 0;
 	for (int i = 0; i < Line1->len && i < Line2->len ; i++) {
-		while (isalpha(char(*(Line1->index - i + Line1->len - 1-CountLineAlpha1))) == 0)
+		while (isalpha(unsigned char(*(Line1->index - i + Line1->len - 1-CountLineAlpha1))) == 0)
 			CountLineAlpha1++;
-		while (isalpha(char(*(Line2->index - i + Line2->len - 1-CountLineAlpha2))) == 0)
+		while (isalpha(unsigned char(*(Line2->index - i + Line2->len - 1-CountLineAlpha2))) == 0)
 			CountLineAlpha2++;
-		if (char(*(Line1->index - i - CountLineAlpha1 + Line1->len - 1 )) < char(*(Line2->index + i - CountLineAlpha2 + Line2->len - 1)))
+		if (unsigned char(*(Line1->index - i - CountLineAlpha1 + Line1->len - 1 )) < unsigned char(*(Line2->index + i - CountLineAlpha2 + Line2->len - 1)))
 			return -1;
 		if (*(Line1->index + i - CountLineAlpha1 + Line1->len - 1) > * (Line2->index + i - CountLineAlpha2  + Line2->len) - 1)
 			return 1;
 	}
 	return 0;
 }
-char* OPENandWRITE(int *len) {
+unsigned char* OPENandWRITE(int *len) {
 	assert(*len != NULL);
 	int trylen = 0;
-	FILE* f = fopen("h.txt", "r");
+	FILE* f = fopen("wap.txt", "r");
 	assert(("Wrong open file!", f));
 	assert(("Wrong seek file", !fseek(f, 0, SEEK_END) != 0));
 	*len = ftell(f);
@@ -52,10 +56,10 @@ char* OPENandWRITE(int *len) {
 		printf("Wrong ftell");
 		return NULL;
 	}
-	char* text = (char*)calloc(*len, sizeof(char));
+	unsigned char* text = (unsigned char*)calloc(*len, sizeof(unsigned char));
 	assert(text != NULL);
 	fseek(f, 0, SEEK_SET);
-	trylen = fread(text, sizeof(char), *len, f);
+	trylen = fread(text, sizeof(unsigned char), *len, f);
 	*len = trylen + 1;
 	fclose(f);
 	return text;
@@ -73,52 +77,42 @@ char* OPENandWRITE(int *len) {
 	fprintf(fp, "\n \n");
 	fclose(fp);
 }
-/*void SORTpyzirek(int len, struct STRING arrow_index[]) {
-	for (int i = 0; i < len; i++)
-		for (int k = 0; k < len; k++)
-			if (Comporator(*(arrow_index + i),*(arrow_index + k)) != 0) {
-				char* temp = 0;
-				temp = (arrow_index + k)->index;
-				(arrow_index + k)->index = (arrow_index + i)->index;
-				(arrow_index + i)->index = temp;
-			}
-}
-*/
+ int Index_Arrow_constr(unsigned char* text, int Textlen, STRING** index) {
+	 struct STRING Line = {};
+	 int Indexlen = 0, StringLen = 0, CountLine = 0;
+	 for (int i = 0; i < Textlen; i++) {
+		 if (*(text + i) == '\n')
+			 Indexlen++;
+		 while (*(text + i) == '\n') {
+			 *(text + i) = '\0';
+			 i++;
+		 }
+	 }
+	 Indexlen++;
+	 *index = (STRING*)calloc(Indexlen, sizeof(**index));
+	 Line.index = text;
+	 for (int i = 0; i < Textlen; i++) {
+		 if (*(text + i) == '\0') {
+			 while ((isalpha(*(text + i)) == 0) && (i < (Textlen - 1)))
+				 i++;
+			 Line.len = StringLen;
+			 *(*index+CountLine) = Line;
+			 Line.index = text + i;
+			 CountLine++;
+			 StringLen = 0;
+		 }
+		 StringLen++;
+	 }
+	 assert(*index != NULL);
+	 return CountLine;
+ }
 
 int main() {
-		 int Textlen = 1, Indexlen = 0, CountLine = 0, StringLen = 0;
-		 const char* mode_write = "w";
-		 const char* mode_append = "a";
-		 struct STRING Line = {};
-		 char* text;
+		 int Textlen = 1, CountLine = 0, StringLen = 0;
+		 unsigned char* text;
+		 STRING* index = NULL;
 		 text = OPENandWRITE(&Textlen);
-		 assert(text != NULL);
-
-		 for (int i = 0; i < Textlen; i++) {
-			 if (*(text + i) == '\n')
-				 Indexlen++;
-			 while (*(text + i) == '\n') {
-				 *(text + i) = '\0';
-				 i++;
-			 }
-
-		 }
-		 Indexlen++;
-		 STRING* index = (STRING*)calloc(Indexlen, sizeof(index[0]));
-		 Line.index = text;
-		 for (int i = 0; i < Textlen; i++) {
-			 if (*(text + i) == '\0') {
-				 while ((isalpha(*(text + i)) == 0) && (i < (Textlen - 1)))
-					 i++;
-				 Line.len = StringLen;
-				 index[CountLine] = Line;
-				 Line.index = text + i;
-				 CountLine++;
-				 StringLen = 0;
-			 }
-			 StringLen++;
-		 }
-		 assert(index != NULL);
+		 CountLine = Index_Arrow_constr(text, Textlen, &index);
 		 CLOSEandWRITE(CountLine, index,mode_write);
 		 qsort(index, CountLine,sizeof(STRING),Comporator);
 		 CLOSEandWRITE(CountLine, index,mode_append);
